@@ -23,6 +23,7 @@ function buttonPressed(event) {
 
     if(controls.hasOwnProperty(currrentKeyCode)) {
         controls[currrentKeyCode]();
+        getWindowPerformance();
     }
 }
 
@@ -44,4 +45,7 @@ function spaceBarDown() {
 function enterKeyDown() {
   triggerRecordingMode();
   console.log('enter key pressed');
+}
+function getWindowPerformance() {
+  console.log(window.performance.now());
 }
