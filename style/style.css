@@ -16,7 +16,7 @@ header > * {
   border: 2px solid blue;
 }
 .gameSpawnArea {
-  height: 600px;
+  height: 500px;
   border: 2px solid green;
 }
 .rythmnBar {
@@ -29,4 +29,12 @@ header > * {
   width: 100px;
   border: 2px solid magenta;
   margin: 0 15px 0 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.recording {
+  color: red;
 }
