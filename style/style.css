@@ -51,18 +51,20 @@ header > * {
 
 /* SPAWNED KEYS */
 
-.spawnedLeftArrow,
-.spawnedDownArrow,
-.spawnedSpaceBar,
-.spawnedUpArrow,
-.spawnedRightArrow {
+.LEFTspawn,
+.DOWNspawn,
+.SPACEspawn,
+.UPspawn,
+.RIGHTspawn {
   position: absolute;
   height: 100px;
   width: 100px;
   background-color: violet;
   transition-duration: 5000ms;
+  opacity: 0;
 }
 
 .moveSpawn {
   transform: translateY(1000px);
+  opacity: 1;
 }

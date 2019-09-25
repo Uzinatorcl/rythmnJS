@@ -12,23 +12,30 @@ function addEventListeners() {
   //   }
   // })
   $(document).on('keydown', buttonPressed);
+  renderKeys();
 }
-
+function renderKeys() {
+  for (var spawnIndex = 0; spawnIndex < testSong.length; spawnIndex++) {
+    console.log(testSong[spawnIndex].key);
+    var keyToSpawn = new keySpawn(testSong[spawnIndex].key, testSong[spawnIndex].time);
+    keyToSpawn.render();
+  }
+}
 
 function buttonPressed(event) {
   var currrentKeyCode = event.keyCode;
   var controls = {
-    37 : leftKeyDown,
-    40 : downKeyDown,
-    39 : rightKeyDown,
-    38 : upKeyDown,
-    32 : spaceBarDown,
-    13 : enterKeyDown
+    37: leftKeyDown,
+    40: downKeyDown,
+    39: rightKeyDown,
+    38: upKeyDown,
+    32: spaceBarDown,
+    13: enterKeyDown
   }
 
-    if(controls.hasOwnProperty(currrentKeyCode)) {
-        controls[currrentKeyCode]();
-    }
+  if (controls.hasOwnProperty(currrentKeyCode)) {
+    controls[currrentKeyCode]();
+  }
 }
 
 function leftKeyDown() {
