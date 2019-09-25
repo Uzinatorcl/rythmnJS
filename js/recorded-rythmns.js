@@ -1,0 +1,40 @@
+var testSong = [{
+  "key": "UP",
+  "time": 875
+}, {
+  "key": "DOWN",
+  "time": 472
+}, {
+  "key": "UP",
+  "time": 493
+}, {
+  "key": "DOWN",
+  "time": 465
+}, {
+  "key": "UP",
+  "time": 473
+}, {
+  "key": "DOWN",
+  "time": 488
+}, {
+  "key": "LEFT",
+  "time": 479
+}, {
+  "key": "RIGHT",
+  "time": 496
+}, {
+  "key": "LEFT",
+  "time": 468
+}, {
+  "key": "RIGHT",
+  "time": 437
+}, {
+  "key": "LEFT",
+  "time": 493
+}, {
+  "key": "RIGHT",
+  "time": 498
+}, {
+  "key": "SPACE",
+  "time": 557
+}]

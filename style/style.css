@@ -1,4 +1,5 @@
 .gameContainer {
+  position: relative;
   margin: 0;
   width: 100%;
   height: 100%;
@@ -16,6 +17,8 @@ header > * {
   border: 2px solid blue;
 }
 .gameSpawnArea {
+  display: flex;
+  justify-content: center;
   height: 500px;
   border: 2px solid green;
 }
@@ -30,6 +33,13 @@ header > * {
   border: 2px solid magenta;
   margin: 0 15px 0 15px;
 }
+.gameSpawnArea > * {
+  border: 2px solid maroon;
+  height: 600px;
+  z-index: 1;
+  width: 100px;
+  margin: 0 15px 0 15px;
+}
 
 .hidden {
   display: none;
@@ -37,4 +47,22 @@ header > * {
 
 .recording {
   color: red;
+}
+
+/* SPAWNED KEYS */
+
+.spawnedLeftArrow,
+.spawnedDownArrow,
+.spawnedSpaceBar,
+.spawnedUpArrow,
+.spawnedRightArrow {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: violet;
+  transition-duration: 5000ms;
+}
+
+.moveSpawn {
+  transform: translateY(1000px);
 }

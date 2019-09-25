@@ -5,7 +5,12 @@ function initializeApp() {
 }
 
 function addEventListeners() {
-  $('body').on('click', '.recordInput', triggerRecordingMode);
+  // $('body').on('click', '.recordInput', triggerRecordingMode);
+  // $(document).on('keydown', function(event) {
+  //   if(event.keyCode === 13) {
+  //     triggerRecordingMode();
+  //   }
+  // })
   $(document).on('keydown', buttonPressed);
 }
 
@@ -23,7 +28,6 @@ function buttonPressed(event) {
 
     if(controls.hasOwnProperty(currrentKeyCode)) {
         controls[currrentKeyCode]();
-        getWindowPerformance();
     }
 }
 
@@ -43,9 +47,5 @@ function spaceBarDown() {
   console.log('space key pressed');
 }
 function enterKeyDown() {
-  triggerRecordingMode();
   console.log('enter key pressed');
-}
-function getWindowPerformance() {
-  console.log(window.performance.now());
 }

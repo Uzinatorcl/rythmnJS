@@ -1,36 +1,52 @@
-var recordedRythmn = {};
+var recordedRythmn = [];
 var currentPlaytime = null;
+var previousPlaytime = null;
 var recording = false;
 
 function triggerRecordingMode() {
-  if(!recording) {
+  if (!recording) {
     recording = true;
-  console.log('recording started');
-  $('.recordInput').text('recording').toggleClass('recording');
+    previousPlaytime = Math.floor(window.performance.now());//at start of record gets the amount of time that has gone by since you have opened the browser
+    console.log('recording started');
+    $('.recordInput').text('recording').toggleClass('recording');
   } else {
     recording = false;
     console.log('recording stopped');
+    console.log(recordedRythmn);
     $('.recordInput').text('not recording').toggleClass('recording');
   }
 }
 
-function registerArrow() {
+function recordingInput(key) {
+  var registeredKey = {};
+  // if(recordedRythmn[0]) {
+  //   previousPlaytime = recordedRythmn[recordedRythmn.length-1].time
+  //   console.log(previousPlaytime);
+  // }
+  registeredKey['key'] = key;
+  currentPlaytime = Math.floor(window.performance.now());
 
+  var offsetTime = currentPlaytime - previousPlaytime;
+  registeredKey['time'] = offsetTime;
+  recordedRythmn.push(registeredKey);
+  previousPlaytime = currentPlaytime;
 }
 
 
-// function leftKeyDownRecord() {
-//   console.log('left key pressed');
-// }
-// function downKeyDownRecord() {
-//   console.log('down key pressed');
-// }
-// function rightKeyDownRecord() {
-//   console.log('right key pressed');
-// }
-// function upKeyDownRecord() {
-//   console.log('up key pressed');
-// }
-// function spaceBarDownRecord() {
-//   console.log('space key pressed');
-// }
+function buttonPressed(event) {
+  if (!recording) {
+    return;
+  }
+  var currentKeyCode = event.keyCode;
+  var controls = {
+    37: () => recordingInput('LEFT'),
+    40: () => recordingInput('DOWN'),
+    39: () => recordingInput('RIGHT'),
+    38: () => recordingInput('UP'),
+    32: () => recordingInput('SPACE')
+  }
+
+  if (controls.hasOwnProperty(currentKeyCode)) {
+    controls[currentKeyCode]();
+  }
+}
