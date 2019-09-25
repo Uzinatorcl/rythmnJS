@@ -17,7 +17,7 @@ function addEventListeners() {
 function renderKeys() {
   for (var spawnIndex = 0; spawnIndex < testSong.length; spawnIndex++) {
     console.log(testSong[spawnIndex].key);
-    var keyToSpawn = new keySpawn(testSong[spawnIndex].key, testSong[spawnIndex].time);
+    var keyToSpawn = new keySpawn(testSong[spawnIndex].key, testSong[spawnIndex].time, spawnIndex);
     keyToSpawn.render();
   }
 }
@@ -54,5 +54,8 @@ function spaceBarDown() {
   console.log('space key pressed');
 }
 function enterKeyDown() {
-  console.log('enter key pressed');
+  if(!gameStarted) {
+    startGame();
+    gameStarted = true;
+  }
 }
