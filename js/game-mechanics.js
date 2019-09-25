@@ -1,24 +1,21 @@
 var gameStarted = false;
 var runTime = null;
 var amountOfKeysToDrop = testSong.length;
+var keyIndex = 0;
 
 function startGame() {
   console.log('gameStarted');
-  for(var keyIndex = 0; keyIndex < amountOfKeysToDrop; keyIndex++) {
-    //debugger;
-    trackKeyIndex(keyIndex);
+  var currentSequence = testSong.slice();
+  function beginKeyDrop() {
+    currentSequence.shift();//pops off the first thing in the array
+    initiateKeyDrop(keyIndex);
+      keyIndex++;
+    if (currentSequence.length) {
+      setTimeout(beginKeyDrop, currentSequence[0].time);
+    }
+
   }
-}
-
-function update() {
-
-}
-
-function trackKeyIndex(index) {
-  setTimeout(() => {
-    console.log(index);
-    initiateKeyDrop(index);
-  }, testSong[index].time);
+  setTimeout(beginKeyDrop, currentSequence[0].time);
 }
 
 function initiateKeyDrop(target) {
