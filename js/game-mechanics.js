@@ -2,6 +2,8 @@ var gameStarted = false;
 var runTime = null;
 var amountOfKeysToDrop = testSong.length;
 var keyIndex = 0;
+//$('.0').position().top this will retrieve the info as it drops
+
 
 function startGame() {
   console.log('gameStarted');
